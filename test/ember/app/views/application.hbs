@@ -1,0 +1,14 @@
+<h1>This is the Ember Base App</h1>
+
+{{input placeholder='New Value' value=newValue}}
+<button {{action 'pop'}}>Pop</button>
+<button {{action 'push'}}>Push</button>
+
+{{#each model}}
+  <p>
+    {{name}}
+    <button {{action 'del' this}}>Delete</button>
+  </p>
+{{/each}}
+
+{{outlet}}
