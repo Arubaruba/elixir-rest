@@ -17,33 +17,30 @@ defmodule Rest.Mixfile do
 
   # Sample REST Server
   def start(_type, _args) do
-    auth_func = fn(auth_params, user) ->
-      case auth_params do
-        # Read
-        {"posts", data} -> true
-        # Write
-        {"posts", newData, data} -> user != nil
-        _ -> false
-      end
-    end
+    Rest.init()
 
-    Server.start(fn(socket) ->
-      {:ok, redis} = :eredis.start_link()
-      header = Request.header(socket)
-      case tl String.split(header.path, "/") do
-        ["data" | _] -> Rest.serve(socket, redis, header, auth_func)
-        _ ->
-          Response.header(socket, 404, "Invalid Url")
-          Response.close(socket, "Invalid Url: #{header.path}")
-      end
-    end, 3030)
+  # auth_func = fn(auth_params, user) ->
+  #   case auth_params do
+  #     # Read
+  #     {"posts", data} -> true
+  #     # Write
+  #     {"posts", newData, data} -> user != nil
+  #     _ -> false
+  #     # Write / Delete 
+  #     {"posts", nil, data} -> user != nil
+  #     _ -> false
+  #     # Write / Create
+  #     {"posts", newData, nil} -> user != nil
+  #     _ -> false
+  #   end
+  # end
   end
 
   defp deps do
     [{:http, github: "Arubaruba/elixir-http"},
      {:jiffy, github: "davisp/jiffy"},
       {:eredis, github: "wooga/eredis"},
-      {:ex_doc, github: "elixir-lang/ex_doc"},
+      {:ex_doc, github: "elixir-lang/ex_doc", only: :dev},
       {:markdown, github: "devinus/markdown", only: :dev}
     ]
   end

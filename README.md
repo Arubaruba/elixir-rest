@@ -3,7 +3,7 @@ Elixir REST
 
 A REST Server for use with EmberJS (and also other Frontend Javascript Frameworks)
 
-# Make sure you have [Redis](http://redis.io/download) and [Elixir](http://elixir-lang.org/install.html) installed
+# Make sure you have [Redis](http://redis.io/download) and [Elixir](http://elixir-lang.org/install.html)
 
 
 ## Create a new project
@@ -45,11 +45,11 @@ _In the Terminal_
 
         Server.start(fn(socket) ->
           {:ok, redis} = :eredis.start_link()
-          header = Request.header(socket)
+          header = Request.client_header(socket)
           case tl String.split(header.path, "/") do
             ["data" | _] -> Rest.serve(socket, redis, header, auth_func)
             _ ->
-              Response.header(socket, 404, "Invalid Url")
+              Response.server_header(socket, 404, "Invalid Url")
               Response.close(socket, "Invalid Url: \#\{header.path}")
           end
         end, 3030)
@@ -69,6 +69,6 @@ _In the Terminal_
     mix deps.get
     mix run --no-halt
 
-Going to [http://localhost:3030/data/posts](http://localhost:3030/data/posts) should return:\n
+Going to [http://localhost:3030/data/posts](http://localhost:3030/data/posts) should return:
 
     {}

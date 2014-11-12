@@ -1,7 +1,7 @@
 %{"eredis": {:git, "git://github.com/wooga/eredis.git", "3c9dfc5cf4e2cd79276b138692d63d3b1d298a52", []},
   "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "c1deebb6d434786daa8c33c26bc103f1141d4e7c", []},
   "hoedown": {:git, "git://github.com/hoedown/hoedown.git", "3afc3ec505dd7dd902086f8c158290962e705663", []},
-  "http": {:git, "git://github.com/Arubaruba/elixir-http.git", "ad668d6b9a001d327767fa64d9db682dc05c285e", []},
+  "http": {:git, "git://github.com/Arubaruba/elixir-http.git", "5a828c8119572dfb92ba784b80dc9d6ae788b1d5", []},
   "jiffy": {:git, "git://github.com/davisp/jiffy.git", "b0fc299119f8cbd8553484e513bf605db3e774fc", []},
   "json": {:git, "https://github.com/davisp/jiffy", "b0fc299119f8cbd8553484e513bf605db3e774fc", []},
   "markdown": {:git, "git://github.com/devinus/markdown.git", "a428908a6dd88f351775d1d3da530a1a2aa0d6cb", []}}
